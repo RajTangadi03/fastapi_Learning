@@ -73,3 +73,4 @@ def createUser( detail: schema.Cust, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_cust)
     return new_cust
+
