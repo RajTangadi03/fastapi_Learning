@@ -70,10 +70,13 @@ import cowsay
 # cowsay.cow('Pankajjjjjjjjjjjjjjjjjjj!!!!!!!!!!!!!!')
 # cowsay.trex('Pankajjjjjjjjjjjjjjjjjjj!!!!!!!!!!!!!!')
 
-def cow(name):
-    cowsay.cow(name)
-    # This is imported in "importedFile.py"
-    cowsay.tux(name)
+def cow(ip):
+    names = ['beavis', 'cheese', 'cow', 'daemon', 'dragon', 'fox', 'ghostbusters', 'kitty', 'meow', 'miki', 'milk', 'octopus', 'pig', 'stegosaurus', 'stimpy', 'trex', 'turkey', 'turtle', 'tux']
+    for name in names:
+        # getattr is used to merge custom request of name used in loop with api to call all functions provided by API
+        cowsay_func = getattr(cowsay, name)
+        cowsay_func(ip)
+
 
 
 """
