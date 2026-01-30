@@ -3,14 +3,17 @@ from sqlalchemy.orm import Session
 from database import get_db
 import model, schema
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/home/canteenOwner",
+    tags=["Canteen Owner"]
+)
 
-@router.get('/home/canteenOwner', tags=["Canteen Owner"])
+@router.get('/')
 def showOwners(db: Session = Depends(get_db)):
     qurs = db.query(model.canteenOwners).all()
     return qurs
 
-@router.post('/home/canteenOwner', tags=["Canteen Owner"])
+@router.post('/')
 def insertCanteenOwner(msg: schema.canteenOwnerData, db: Session = Depends(get_db)):
     new_canteenOwner = model.canteenOwners(name=msg.name, phoneNo=msg.phoneNo, canteen_id=msg.canteen_id)
     db.add(new_canteenOwner)
