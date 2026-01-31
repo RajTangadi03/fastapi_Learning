@@ -9,3 +9,10 @@ engine = create_engine(sqlite_url, connect_args={"check_same_thread": False})
 localSession = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
 Base = declarative_base()
+
+def get_db():
+    db = localSession()
+    try:
+        yield db
+    finally:
+        db.close()
