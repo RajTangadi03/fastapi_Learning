@@ -4,6 +4,7 @@ class canteenOwnerData(BaseModel):
     name: str
     phoneNo: str
     canteen_id: int
+    password: str
 
 class canteenData(BaseModel):
     name: str
@@ -14,6 +15,7 @@ class canteensAndOwners(BaseModel):
     
 class auth(BaseModel):
     name: str
+    password: str
 
 class Token(BaseModel):
     access_token: str

@@ -8,6 +8,7 @@ class canteenOwners(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String)
     phoneNo = Column(String)
+    password = Column(String)
     canteen_id = Column(Integer, ForeignKey("canteens.id", ondelete="CASCADE"))
 
     canteenOwner = relationship("canteensAndOwners", back_populates="relaCanteenOwner", cascade="all, delete")
